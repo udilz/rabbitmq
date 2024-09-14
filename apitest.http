@@ -1,0 +1,13 @@
+### GET ALL ORDERS
+GET http://localhost:3000
+
+
+### POST ORDERS
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+    "productName": "Javascript",
+    "price": 2200,
+    "sellerName": "Jawir"
+}

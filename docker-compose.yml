@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  notification-services:
+    build: ./notifications
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./notifications/.env
+    
+  order-services:
+    build: ./orders
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./orders/.env
+    
+  mongo-orders:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-orders:/data/db
+  
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+volumes:
+  mongo-orders:
+    
